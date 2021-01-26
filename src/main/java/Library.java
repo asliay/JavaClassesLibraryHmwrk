@@ -13,12 +13,21 @@ public class Library {
 
 
     public int stockCount() {
-        return books.size();
+        return this.books.size();
     }
 
     public void addBook(Book book) {
         if(this.books.size() < this.capacity) {
             this.books.add(book);
+        }
+    }
+
+    public Book removeBook(Book book) {
+        int bookIndex = this.books.indexOf(book);
+        if (bookIndex >= 0) {
+            return this.books.remove(bookIndex);
+        }else{
+            return null;
         }
     }
 }

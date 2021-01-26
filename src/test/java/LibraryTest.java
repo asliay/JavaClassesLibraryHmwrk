@@ -36,4 +36,22 @@ public class LibraryTest {
         leithLibrary.addBook(book1);
         assertEquals(1, leithLibrary.stockCount());
     }
+
+    @Test
+    public void cantAddBookWhenStockFull() {
+        leithLibrary.addBook(book1);
+        leithLibrary.addBook(book2);
+        leithLibrary.addBook(book3);
+        leithLibrary.addBook(book4);
+        leithLibrary.addBook(book5);
+        assertEquals(4, leithLibrary.stockCount());
+    }
+
+    @Test
+    public void canRemoveBookFromStock() {
+        leithLibrary.addBook(book2);
+        leithLibrary.addBook(book3);
+        leithLibrary.removeBook(book2);
+        assertEquals(1, leithLibrary.stockCount());
+    }
 }
